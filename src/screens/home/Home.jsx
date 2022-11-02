@@ -4,7 +4,7 @@ import { Container } from "./styled";
 
 export default function Home(){
     const [listaTarefas, setListaTarefas] = useState([]);
-    const [tarefaNova, setTarefaNova] = useState("ABC");
+    const [tarefaNova, setTarefaNova] = useState("");
 
     const adicionarTarefa = ()=>{
         console.log("test");
