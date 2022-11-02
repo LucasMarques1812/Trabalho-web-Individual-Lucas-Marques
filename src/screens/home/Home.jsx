@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import { Container } from "./styled";
 
 export default function Home(){
     const [listaTarefas, setListaTarefas] = useState([]);
@@ -7,9 +8,6 @@ export default function Home(){
 
     const adicionarTarefa = ()=>{
         console.log("test");
-        //const newLista = [...listaTarefas];
-        //newLista.push(tarefaNova);
-        //setListaTarefas(newLista);
         const task = {
             id: Math.random(),
             content: tarefaNova,
@@ -21,10 +19,10 @@ export default function Home(){
             const commentWithoutDeletedOne = listaTarefas.filter((tarefa) => tarefa.id !== id)
             setListaTarefas(commentWithoutDeletedOne);
     }
-    return(<div>
+    return(<Container>
         <header>
             <h1>
-                Lista de Tarefas
+                Minhas Tarefas
             </h1>
         </header>
         <article>
@@ -33,13 +31,13 @@ export default function Home(){
                     listaTarefas.map((item, index)=>{
                         console.log("minhaTask", item)
                         return(
-                        <li>{item.content}<button onClick={()=> removerTarefa(item.id)}>Apagar</button></li>
+                        <li>{item.content}<button onClick={()=> removerTarefa(item.id)}>Apagar 🗑️</button> <input type="checkbox"></input></li>
                         )
                     })
                 }
             </ul>
             <input type="text" onChange={(e)=>{setTarefaNova(e.target.value)}} value={tarefaNova} />
-            <button onClick={adicionarTarefa}>Submit</button>
+            <button onClick={adicionarTarefa}>Enviar ➡️</button>
         </article>
-    </div>)
+    </Container>)
 };
